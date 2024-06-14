@@ -1,37 +1,35 @@
-
 package vehiculo;
 
 /**
  *
- * @author 
+ * @author
  */
 public class Main {
-    
-      public static void main(String[] args) {
-        VehiculoXXX2223 miVehiculoXXX2223;
+
+    public static void main(String[] args) {
+        VehiculoEUG1406 miVehiculoEUG1406;
         int stockActual;
-        
-        miVehiculoXXX2223 = new VehiculoXXX2223("Seat",18000,100);
-        try 
-        {
+
+        miVehiculoEUG1406 = new VehiculoEUG1406("Seat", 18000, 100);
+        operativaVehiculosEUG1406(miVehiculoEUG1406, 50);
+        stockActual = miVehiculoEUG1406.obtenerStock();
+        System.out.println("El stock actual es " + stockActual);
+    }
+
+    public static void operativaVehiculosEUG1406(VehiculoEUG1406 miVehiculoEUG1406, int cantidad) {
+        try {
             System.out.println("Venta de Vehiculos");
-            miVehiculoXXX2223.vender(20);
-        } catch (Exception e)
-        {
+            miVehiculoEUG1406.vender(20);
+        } catch (Exception e) {
             System.out.print("Fallo al vender");
         }
-        
-        try
-        {
+
+        try {
             System.out.println("Compra de Vehiculos");
-            miVehiculoXXX2223.comprar(100);
-        } catch (Exception e)
-        {
+            miVehiculoEUG1406.comprar(100);
+        } catch (Exception e) {
             System.out.print("Fallo al comprar");
         }
-        stockActual = miVehiculoXXX2223.obtenerStock();
-        System.out.println("El stock actual es "+ stockActual );
     }
 
 }
-    

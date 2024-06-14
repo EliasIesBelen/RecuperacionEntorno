@@ -2,8 +2,10 @@
 package vehiculo;
 
 /**
- *
- * @author 
+ * Clase que representa un vehículo con nombre, precio y stock
+ * Proporciona métodos para comprar y vender vehículos, así como para obtener y asignar valores de sus propiedades
+ * 
+ * @author elias
  */
 public class VehiculoEUG1406 {
 
@@ -12,112 +14,153 @@ public class VehiculoEUG1406 {
     private double precioIVA;
     private int stock;
 
-    /* Constructor sin argumentos */
-    public VehiculoEUG1406 ()
-    {
+    /**
+     * Constructor sin argumentos
+     */
+    public VehiculoEUG1406() {
     }
-    // Constructor con parámetro para iniciar todas las propiedades de la clase
-    
-    
-    public VehiculoEUG1406 (String nom, double precio, int stock)
-    {
-        this.nombre =nom;
-        this.precio=precio;
-        this.stock=stock;
+
+    /**
+     * Constructor con parámetros para inicializar la clase
+     * 
+     * @param nom   El nombre del vehículo
+     * @param precio El precio del vehículo
+     * @param stock  La cantidad de vehículos en stock
+     */
+    public VehiculoEUG1406(String nom, double precio, int stock) {
+        this.nombre = nom;
+        this.precio = precio;
+        this.stock = stock;
     }
-   // Método para asignar el nombre del vehiculo
-    public void asignarNombre(String nom)
-    {
+
+    /**
+     * Asigna el nombre del vehículo
+     * 
+     * @param nom El nombre a asignar al vehículo
+     */
+    public void asignarNombre(String nom) {
         setNombre(nom);
     }
-    // Método que me devuelve el nombre del vehiculo
-    public String obtenerNombre()
-    {
+
+    /**
+     * Devuelve el nombre del vehículo
+     * 
+     * @return El nombre del vehículo
+     */
+    public String obtenerNombre() {
         return getNombre();
     }
 
-    // Método que me devuelve el stock de vehiculos disponible en cada momento
-     public int obtenerStock ()
-    {
+    /**
+     * Devuelve el stock de vehículos disponible en cada momento
+     * 
+     * @return El stock de vehículos disponible
+     */
+    public int obtenerStock() {
         return getStock();
     }
 
-    /* Método para comprar vehiculos. Modifica el stock.
-     * Este método va a ser probado con Junit
+    /**
+     * Compra vehículos y modifica el stock
+     * 
+     * @param cantidad La cantidad de vehículos a comprar
+     * @throws Exception Si la cantidad es negativa
      */
-    public void comprar(int cantidad) throws Exception
-    {
-        if (cantidad<0)
-            throw new Exception("No se puede comprar un nº negativo de vehiculos");
+    public void comprar(int cantidad) throws Exception {
+        if (cantidad < 0) {
+            throw new Exception("No se puede comprar un número negativo de vehículos");
+        }
         setStock(getStock() + cantidad);
     }
 
-    public void vender (int cantidad) throws Exception
-    {
-        if (cantidad <= 0)
-            throw new Exception ("No se puede vender una cantidad negativa de vehiculos");
-        if (obtenerStock()< cantidad)
-            throw new Exception ("No se hay suficientes vehiculos para vender");
+    /**
+     * Vende vehículos y modifica el stock
+     * 
+     * @param cantidad La cantidad de vehículos a vender
+     * @throws Exception Si la cantidad es negativa o si no hay suficientes vehículos en stock
+     */
+    public void vender(int cantidad) throws Exception {
+        if (cantidad <= 0) {
+            throw new Exception("No se puede vender una cantidad negativa de vehículos");
+        }
+        if (obtenerStock() < cantidad) {
+            throw new Exception("No hay suficientes vehículos para vender");
+        }
         setStock(getStock() - cantidad);
     }
 
     /**
-     * @return the nombre
+     * Devuelve el nombre del vehículo
+     * 
+     * @return El nombre del vehículo
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * @param nombre the nombre to set
+     * Asigna el nombre del vehículo
+     * 
+     * @param nombre El nombre a asignar al vehículo
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     * @return the precio
+     * Devuelve el precio del vehículo
+     * 
+     * @return El precio del vehículo
      */
     public double getPrecio() {
         return precio;
     }
 
     /**
-     * @param precio the precio to set
+     * Asigna el precio del vehículo
+     * 
+     * @param precio El precio a asignar al vehículo
      */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
     /**
-     * @return the precioIVA
+     * Devuelve el precio con IVA del vehículo
+     * 
+     * @return El precio con IVA del vehículo
      */
     public double getPrecioIVA() {
         return precioIVA;
     }
 
     /**
-     * @param precioIVA the precioIVA to set
+     * Asigna el precio con IVA del vehículo
+     * 
+     * @param precioIVA El precio con IVA a asignar al vehículo
      */
     public void setPrecioIVA(double precioIVA) {
         this.precioIVA = precioIVA;
     }
 
     /**
-     * @return the stock
+     * Devuelve el stock de los vehículos
+     * 
+     * @return El stock de vehículos
      */
     public int getStock() {
         return stock;
     }
 
     /**
-     * @param stock the stock to set
+     * Asigna el stock de vehículos
+     * 
+     * @param stock El stock a asignar a los vehículos
      */
     public void setStock(int stock) {
         this.stock = stock;
     }
-    
-}  
+} 
    
     
 
